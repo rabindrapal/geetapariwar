@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhagavad Gita - Geeta Pariwar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-Pariwar: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section with Enhanced Background */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(
+                135deg,
+                rgba(15, 23, 42, 0.8) 0%,
+                rgba(30, 41, 59, 0.7) 50%,
+                rgba(15, 23, 42, 0.9) 100%
+            ),
+            url('krishna-hero.png') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: white;
+        }
+
+
+        /* Enhanced floating particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 215, 0, 0.6);
+            border-radius: 50%;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) { width: 6px; height: 6px; left: 15%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 4px; height: 4px; left: 35%; animation-delay: 2s; }
+        .particle:nth-child(3) { width: 8px; height: 8px; left: 55%; animation-delay: 4s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; left: 75%; animation-delay: 1s; }
+        .particle:nth-child(5) { width: 3px; height: 3px; left: 85%; animation-delay: 3s; }
+        .particle:nth-child(6) { width: 7px; height: 7px; left: 25%; animation-delay: 5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg) scale(1); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            50% { transform: translateY(30vh) rotate(180deg) scale(1.5); }
+        }
+
+        /* Enhanced Navigation */
+        nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(14,116,144,0.95), rgba(194,24,91,0.92));
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid rgba(244,180,0,0.35);
+}
+
+        nav.scrolled {
+    background: linear-gradient(90deg, rgba(11,94,116,0.97), rgba(157,20,74,0.95));
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    border-bottom-color: rgba(244,180,0,0.45);
+}
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #F4B400;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+    color: #FFF8F0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.75rem 1rem;
+    border-radius: 25px;
+    font-weight: 500;
+}
+
+        .nav-links a:hover {
+    color: #F4B400;
+    background: rgba(244,180,0,0.15);
+    transform: translateY(-2px);
+}
+
+        .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #F4B400, #FFF8F0, #F4B400);
+    background-size: 200% 100%;
+    transition: width 0.4s ease, background-position 0.6s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+        .nav-links a:hover::after {
+    width: 80%;
+    background-position: 100% 0;
+}
+
+        /* Enhanced Hero Content */
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            padding: 2rem;
+            animation: slideUp 1.2s ease-out;
+            z-index: 10;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #F4B400 0%, #F7C948 25%, #F4B400 50%, #F7C948 75%, #F4B400 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            animation: glow 3s ease-in-out infinite alternate;
+            background-size: 200% 200%;
+            animation: glow 3s ease-in-out infinite alternate, gradientShift 4s linear infinite;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4)); }
+            to { filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.7)); }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+            line-height: 1.6;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .Pariwar-tagline {
+            font-size: clamp(1rem, 2.2vw, 1.3rem);
+            margin: 1.5rem 0 2rem;
+            color: #F7C948;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 15px rgba(255, 237, 74, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.02); }
+        }
+
+        .sanskrit-quote {
+            font-size: 1.4rem;
+            font-style: italic;
+            margin: 2.5rem 0;
+            color: #F4B400;
+            opacity: 0.95;
+            font-Pariwar: 'Georgia', serif;
+            background: rgba(15, 23, 42, 0.7);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Enhanced CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .cta-btn {
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            min-width: 220px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #F4B400, #F7C948);
+            color: #1a1a1a;
+            box-shadow: 0 10px 35px rgba(255, 215, 0, 0.4);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(135deg, #F7C948, #F4B400);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 3px solid rgba(255, 215, 0, 0.5);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 215, 0, 0.15);
+            border-color: #F4B400;
+            color: #F4B400;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.2);
+        }
+
+        /* New Pariwar Community Section */
+        .Pariwar-community {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #0E7490, #E6F4F7);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .Pariwar-community::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .Pariwar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            margin-bottom: 1rem;
+            color: #F4B400;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            margin-bottom: 4rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .Pariwar-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .stat-card {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #F4B400;
+            display: block;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Enhanced Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #E6F4F7, #E6F4F7);
+            color: white;
+        }
+
+        .features-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(15, 23, 42, 0.9);
+            padding: 2.5rem;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 2px solid rgba(255, 215, 0, 0.1);
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #F4B400, #F7C948, #F4B400);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.25);
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: #F4B400;
+            text-shadow: 0 2px 15px rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-title {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .feature-description {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* Enhanced Testimonials Section */
+        .testimonials {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #E6F4F7, #FFF8F0);
+            color: white;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-card {
+            background: rgba(15, 23, 42, 0.9);
+            padding: 2.5rem;
+            border-radius: 20px;
+            position: relative;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.15);
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #F4B400, #F7C948);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: #F4B400;
+        }
+
+        .author-location {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Enhanced Courses Section */
+        .courses {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #FFF8F0, #E6F4F7);
+            color: white;
+        }
+
+        .courses-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .course-card {
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 25px;
+            padding: 3rem;
+            transition: all 0.4s ease;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #F4B400, #F7C948);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .course-level {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.15);
+            color: #F4B400;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .course-title {
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: 800;
+        }
+
+        .course-description {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .course-features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .course-features li {
+            padding: 0.8rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            padding-left: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .course-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #F4B400;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .course-cta {
+            background: linear-gradient(135deg, #F4B400, #F7C948);
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .course-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4);
+            background: linear-gradient(135deg, #F7C948, #F4B400);
+        }
+
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Enhanced scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.8);
+            animation: bounce 2.5s infinite;
+            text-align: center;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-15px); }
+            60% { transform: translateX(-50%) translateY(-8px); }
+        }
+
+        /* Enhanced Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #E6F4F7, #0E7490);
+            color: white;
+        }
+
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-form {
+            background: rgba(30, 41, 59, 0.9);
+            padding: 4rem;
+            border-radius: 25px;
+            margin-top: 3rem;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: #F4B400;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            background: rgba(15, 23, 42, 0.8);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #F4B400;
+            box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1);
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 140px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #F4B400, #F7C948);
+            color: #1a1a1a;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
+            background: linear-gradient(135deg, #F7C948, #F4B400);
+        }
+
+        /* Enhanced Footer */
+        .footer {
+            background: linear-gradient(180deg, #0E7490, #0B5E74);
+            padding: 4rem 2rem 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .footer-links a:hover {
+            color: #F4B400;
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .footer-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+            margin: 3rem 0;
+        }
+
+        .footer-bottom {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+
+        /* Enhanced Floating Social */
+        .floating-social {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(25px);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s ease;
+            max-width: 220px;
+        }
+
+        .floating-social:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .floating-social h4 {
+            color: #F4B400;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            border: 1px solid transparent;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 215, 0, 0.15);
+            color: #F4B400;
+            border-color: rgba(255, 215, 0, 0.3);
+            transform: translateX(8px);
+        }
+
+        .social-icon {
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+                height: 70px;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 23, 42, 0.98);
+                flex-direction: column;
+                padding: 2rem 0;
+                gap: 0;
+                backdrop-filter: blur(25px);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+    color: #FFF8F0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.75rem 1rem;
+    border-radius: 25px;
+    font-weight: 500;
+}
+
+            .hero-content {
+                padding: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .cta-btn {
+                min-width: 280px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .Pariwar-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-social {
+                right: 1rem;
+                padding: 1rem;
+                max-width: 200px;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .footer-links {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .Pariwar-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .floating-social {
+                right: 0.5rem;
+                padding: 0.8rem;
+                max-width: 180px;
+            }
+
+            .cta-btn {
+                min-width: 250px;
+                padding: 1rem 2rem;
+            }
+        }
+    
+/* Dynamic Quote + Audio */
+.sanskrit-quote {
+    position: relative;
+    background: rgba(255, 248, 240, 0.85);
+    border: 1px solid rgba(244, 180, 0, 0.35);
+    color: #0B5E74;
+    box-shadow: 0 10px 24px rgba(14,116,144,0.15);
+}
+
+.quote-line-devanagari,
+.quote-line-english{
+    display:block;
+}
+
+.quote-line-devanagari{
+    font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+    font-weight: 700;
+    color: #0E7490;
+    margin-bottom: .35rem;
+}
+
+.quote-line-english{
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    color: #2E2A27;
+    opacity: .85;
+}
+
+.type-cursor::after{
+    content: '▮';
+    margin-left: 2px;
+    animation: blink .9s steps(1) infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Audio bubble control */
+.audio-pill{
+    position:absolute;
+    top: -14px;
+    right: -14px;
+    background: linear-gradient(135deg, #F4B400, #F7C948);
+    color:#2E2A27;
+    border: 1px solid rgba(244,180,0,.5);
+    border-radius: 999px;
+    padding: .45rem .8rem;
+    font-size: .9rem;
+    font-weight: 800;
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    box-shadow: 0 8px 18px rgba(244,180,0,.35);
+    cursor: pointer;
+    user-select:none;
+}
+
+.audio-pill .dot{
+    width:10px; height:10px; border-radius:50%;
+    background:#2E2A27; opacity:.5;
+    animation: pulse-audio 1.6s infinite;
+}
+
+@keyframes pulse-audio {
+  0%,100%{ transform:scale(1); opacity:.5;}
+  50%{ transform:scale(1.4); opacity:1;}
+}
+
+.audio-hint{
+    display:block;
+    font-size:.75rem;
+    color:#2E2A27;
+    opacity:.8;
+    margin-top:.25rem;
+}
+
+/* Reduce padding on very small screens so pill doesn't overlap text */
+@media (max-width: 420px){
+  .sanskrit-quote{ padding-top: 1rem; }
+}
+
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="learngeeta-logo-sm-120x41.png" alt="Geeta Pariwar Logo" class="logo-icon" style="height:41px; width:auto;">
+            </a>
+            <button class="mobile-menu-toggle" id="mobileToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#Pariwar">Pariwar</a></li>
+                <li><a href="#teachings">Events</a></li>
+                <li><a href="#courses">Learn</a></li>
+                <li><a href="#testimonials">Stories</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://store.learngeeta.com/en/">Store</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">Geeta Pariwar</h1>
+            <p class="hero-subtitle">
+                Bhagwad Geeta is the beautiful expression of yogic science explained by Lord Shrikrishna himself who is known as Yogeshwar.
+            </p>
+            
+            
+<div class="sanskrit-quote" id="dynamicQuote">
+    <button class="audio-pill" id="audioToggle" aria-label="Play sacred audio" title="Play/Pause">
+        <span class="dot" aria-hidden="true"></span>
+        <span id="audioLabel">Playing</span>
+    </button>
+    <span class="quote-line-devanagari type-cursor" id="quoteDev"></span>
+    <span class="quote-line-english" id="quoteEn"></span>
+    <small class="audio-hint" id="audioHint" aria-live="polite">Audio will start automatically if your browser allows. Click the gold button to play.</small>
+</div>
+
+            
+            <div class="cta-buttons">
+                <a href="#courses" class="cta-btn cta-primary">Join Our Pariwar</a>
+                <a href="#teachings" class="cta-btn cta-secondary">Explore Programs</a>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div style="font-size: 2.5rem;">🙏</div>
+            <div style="font-size: 0.9rem;">Discover more</div>
+        </div>
+    </section>
+
+    <!-- Pariwar Community Section -->
+    <section class="Pariwar-community" id="Pariwar">
+        <div class="Pariwar-container">
+            <h2 class="section-title">Our Global Spiritual Pariwar</h2>
+            <p align="center" style="font-size: 1.2rem; color: rgba(19, 20, 21, 0.9); margin-bottom: 2rem;" >
+            
+                United by devotion, connected by wisdom, growing together in Krishna consciousness
+            </p>
+
+            
+            <div class="Pariwar-stats">
+                <div class="stat-card">
+                    <span class="stat-number">12,500+</span>
+                    <span class="stat-label">Pariwar Members</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">45</span>
+                    <span class="stat-label">Countries</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">700</span>
+                    <span class="stat-label">Sacred Shlokas</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Community Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="teachings">
+        <div class="features-container">
+            <h2 class="section-title">Sacred Learning Experience</h2>
+            
+             <p align="center" style="font-size: 1.2rem; color: rgba(19, 20, 21, 0.9); margin-bottom: 2rem;" >
+                Immerse yourself in the divine wisdom through our comprehensive learning approach
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📿</div>
+                    <h3 class="feature-title">Original Sanskrit Wisdom</h3>
+                    <p class="feature-description">
+                        Learn directly from authentic Sanskrit texts with detailed pronunciation guides, 
+                        transliterations, and deep spiritual insights from traditional commentaries.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🧘‍♂️</div>
+                    <h3 class="feature-title">Interactive Spiritual Journey</h3>
+                    <p class="feature-description">
+                        Engage with multimedia lessons, guided meditations, audio recitations, 
+                        and interactive exercises designed to deepen your Krishna consciousness.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3 class="feature-title">Guru-Disciple Tradition</h3>
+                    <p class="feature-description">
+                        Learn from experienced Sanskrit scholars and spiritual masters who carry 
+                        the authentic parampara tradition with decades of devotional wisdom.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3 class="feature-title">Progressive Spiritual Growth</h3>
+                    <p class="feature-description">
+                        Follow a structured path from basic Sanskrit to advanced Gita commentary, 
+                        designed for spiritual seekers at every level of their journey.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💝</div>
+                    <h3 class="feature-title">Free Divine Knowledge</h3>
+                    <p class="feature-description">
+                        Our NGO mission ensures that Lord Krishna's sacred teachings remain 
+                        accessible to all souls, regardless of background or circumstances.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">Global Devotee Network</h3>
+                    <p class="feature-description">
+                        Connect with fellow devotees worldwide, participate in satsangs, 
+                        share spiritual insights, and grow together in divine consciousness.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-container">
+            <h2 class="section-title">Pariwar Stories & Transformations</h2>
+           
+            <p align="center" style="font-size: 1.2rem; color: rgba(19, 20, 21, 0.9); margin-bottom: 2rem;" >
+                Hear from our beloved Pariwar members about their spiritual journey with us 
+            </p>
+            
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        "Joining this Pariwar has been the most transformative experience of my life. 
+                        Learning Sanskrit and understanding the Gita in its original form has deepened 
+                        my connection with Lord Krishna beyond what I ever imagined possible."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">P</div>
+                        <div class="author-info">
+                            <div class="author-name">Priya Sharma</div>
+                            <div class="author-location">Mumbai, India</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        "The community support here is incredible. Even though I'm thousands of miles away, 
+                        I feel so connected to this spiritual Pariwar. The teachers are patient, 
+                        knowledgeable, and truly embody the teachings they share."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <div class="author-name">Michael Johnson</div>
+                            <div class="author-location">California, USA</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        "Starting as a complete beginner in Sanskrit, I never thought I'd be able to 
+                        chant the shlokas with confidence. This Pariwar's approach made it possible. 
+                        Now I help other newcomers on their journey too."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <div class="author-name">Anita Patel</div>
+                            <div class="author-location">London, UK</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses" id="courses">
+        <div class="courses-container">
+            <h2 class="section-title">Spiritual Journey </h2>
+            <p align="center"  style="font-size: 1.2rem; color: rgba(19, 20, 21, 0.9); margin-bottom: 2rem;">
+                Choose your journey through the sacred texts with our Pariwar-guided programs.
+            </p>
+            <div class="course-grid">
+                <div class="course-card">
+                    <span class="course-level">New Pariwar Member</span>
+                    <h3 class="course-title">Sanskrit & Gita Basics</h3>
+                    <p class="course-description">
+                        Perfect for newcomers to our Pariwar. Start with fundamental Sanskrit alphabet, 
+                        pronunciation, and your first meaningful connection with Lord Krishna's words.
+                    </p>
+                    <ul class="course-features">
+                        <li>Devanagari script mastery</li>
+                        <li>Audio pronunciation with native speakers</li>
+                        <li>First 25 essential shlokas with meanings</li>
+                        <li>Weekly Pariwar support sessions</li>
+                        <li>Beginner's meditation guidance</li>
+                    </ul>
+                    <button class="course-cta">Become Geeta Jigyasu</button>
+                </div>
+                
+                <div class="course-card">
+                    <span class="course-level">Growing Member</span>
+                    <h3 class="course-title">Deep Chapter Study</h3>
+                    <p class="course-description">
+                        Dive deeper with your spiritual Pariwar. Explore complete chapters with 
+                        traditional commentary, advanced grammar, and practical life applications.
+                    </p>
+                    <ul class="course-features">
+                        <li>Complete Chapters 2, 3, & 18 analysis</li>
+                        <li>Advanced grammar and sandhi rules</li>
+                        <li>Classical commentary from Acharyas</li>
+                        <li>Group discussion and satsangs</li>
+                        <li>Daily meditation practices</li>
+                    </ul>
+                    <button class="course-cta">Become Geeta Vrati</button>
+                </div>
+                
+                <div class="course-card">
+                    <span class="course-level">Pariwar Guide</span>
+                    <h3 class="course-title">Teacher & Mentor Path</h3>
+                    <p class="course-description">
+                        Become a guiding light for new Pariwar members. Master all 18 chapters and 
+                        learn to share Krishna's wisdom with love and authenticity.
+                    </p>
+                    <ul class="course-features">
+                        <li>Complete 18 chapters mastery</li>
+                        <li>Advanced Sanskrit grammar concepts</li>
+                        <li>Teaching methodology & compassion</li>
+                        <li>Pariwar mentorship training</li>
+                        <li>Certified spiritual guide program</li>
+                    </ul>
+                    <button class="course-cta">Become Geeta Sevi</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Join Our Spiritual Geeta Pariwar</h2>
+            <p style="font-size: 1.2rem; color: rgba(19, 20, 21, 0.9); margin-bottom: 2rem;">
+                Welcome Home! We're here to welcome you with open hearts 
+                and guide you every step of the way.
+            </p>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience">Your Spiritual Background</label>
+                        <input type="text" id="experience" name="experience" placeholder="e.g., Complete beginner, Some Sanskrit knowledge, Regular Gita reader...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="motivation">What draws you to join our Pariwar?</label>
+                        <textarea id="motivation" name="motivation" placeholder="Share what inspires you to learn about Lord Krishna and the Bhagavad Gita..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Welcome Me to the Pariwar 🙏</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#Pariwar">Pariwar</a>
+                <a href="#teachings">Events</a>
+                <a href="#courses">Learn</a>
+                <a href="#testimonials">Stories</a>
+                <a href="#contact">Contact</a>
+                <a href="https://store.learngeeta.com/en/">Store</a>
+                <a href="#">Privacy</a>
+                <a href="#">Guidelines</a>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-bottom">
+                <p>🕉️ Geeta Pariwar - Spreading Lord Krishna's Divine Love Since 2020</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                    "तत्त्वविदो जानन्ति" - Those who know the truth understand
+                </p>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">
+                    A Non-Profit Organization dedicated to making sacred knowledge accessible to all souls
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Social Connect -->
+    <div class="floating-social" id="floatingSocial">
+        <h4>Connect & Share 💫</h4>
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank" class="social-link" rel="noopener noreferrer">
+                <span class="social-icon">📘</span>
+                <span>Facebook</span>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="social-link" rel="noopener noreferrer">
+                <span class="social-icon">📷</span>
+                <span>Instagram</span>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="social-link" rel="noopener noreferrer">
+                <span class="social-icon">📺</span>
+                <span>YouTube</span>
+            </a>
+            <a href="https://telegram.me" target="_blank" class="social-link" rel="noopener noreferrer">
+                <span class="social-icon">✈️</span>
+                <span>Telegram</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced smooth scrolling with offset for fixed nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80; // Account for fixed nav
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-container')) {
+                navLinks.classList.remove('active');
+                if (mobileToggle) mobileToggle.textContent = '☰';
+            }
+        });
+
+        // Enhanced navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            const floatingSocial = document.getElementById('floatingSocial');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Hide scroll indicator after scrolling
+            if (window.scrollY > 100 && scrollIndicator) {
+                scrollIndicator.style.opacity = '0';
+                scrollIndicator.style.transform = 'translateX(-50%) translateY(20px)';
+            } else if (scrollIndicator) {
+                scrollIndicator.style.opacity = '1';
+                scrollIndicator.style.transform = 'translateX(-50%) translateY(0)';
+            }
+            
+            // Show floating social after scrolling
+            if (window.scrollY > 400 && floatingSocial) {
+                floatingSocial.style.opacity = '1';
+                floatingSocial.style.transform = 'translateY(-50%) translateX(0)';
+            } else if (floatingSocial) {
+                floatingSocial.style.opacity = '0';
+                floatingSocial.style.transform = 'translateY(-50%) translateX(100px)';
+            }
+        });
+
+        // Enhanced intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                    }, index * 100); // Stagger the animations
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .course-card, .stat-card, .testimonial-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(40px) scale(0.95)';
+            card.style.transition = `all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+        // Enhanced form submission with better feedback
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            // Animate form submission
+            submitBtn.textContent = 'Preparing your welcome... 🙏';
+            submitBtn.disabled = true;
+            submitBtn.style.background = 'linear-gradient(135deg, #059669, #047857)';
+            
+            // Simulate processing
+            setTimeout(() => {
+                submitBtn.textContent = '🎉 Welcome to our Pariwar! 🎉';
+                submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                
+                // Show success message
+                setTimeout(() => {
+                    alert('🙏 Welcome to the Geeta Pariwar! 🙏\n\nWe\'re thrilled to have you join us on this sacred journey. You\'ll receive a welcome email shortly with next steps.\n\nHare Krishna! 🕉️');
+                    
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = 'linear-gradient(135deg, #F4B400, #F7C948)';
+                    this.reset();
+                }, 2000);
+            }, 2000);
+        });
+
+        // Initialize floating social as hidden
+        document.addEventListener('DOMContentLoaded', () => {
+            const floatingSocial = document.getElementById('floatingSocial');
+            if (floatingSocial) {
+                floatingSocial.style.opacity = '0';
+                floatingSocial.style.transform = 'translateY(-50%) translateX(100px)';
+                floatingSocial.style.transition = 'all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)';
+            }
+        });
+
+        // Add hover effects for interactive elements
+        document.querySelectorAll('.cta-btn, .course-cta').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.style.transform = 'translateY(-4px) scale(1.02)';
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Subtle parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero');
+            if (parallax && scrolled < window.innerHeight) {
+                parallax.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+
+        // Add typing effect to hero title (optional enhancement)
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.textContent = '';
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Uncomment below to enable typing effect on load
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     const heroTitle = document.querySelector('.hero-title');
+        //     if (heroTitle) {
+        //         const titleText = heroTitle.textContent;
+        //         typeWriter(heroTitle, titleText, 80);
+        //     }
+        // });
+    </script>
+
+<audio id="bgAudio" src="mahabharat-title-song-52167-52730.mp3" preload="auto" bgAudio.loop = true></audio>
+
+
+<script>
+(function(){
+  // Rotating lines (you can add more)
+  const QUOTES = [
+    { dev: "यदा यदा हि धर्मस्य ग्लानिर्भवति भारत | अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम् ||", en: "Whenever virtue subsides and wickedness prevails, I manifest Myself." },
+    { dev: "परित्राणाय साधूनां विनाशाय च दुष्कृताम् | धर्मसंस्थापनार्थाय सम्भवामि युगे युगे || ", en: "To establish virtue, to destroy evil, to save the good I come from Yuga (age) to Yuga." },
+  ];
+
+  const devEl = document.getElementById('quoteDev');
+  const enEl  = document.getElementById('quoteEn');
+  const hintEl = document.getElementById('audioHint');
+
+  let idx = 0;
+  let typing = false;
+
+  function typeText(el, text, speed=18){
+    return new Promise(resolve => {
+      typing = true;
+      el.textContent = "";
+      let i = 0;
+      function step(){
+        if(i < text.length){
+          el.textContent += text.charAt(i);
+          i++;
+          setTimeout(step, speed);
+        } else { typing = false; resolve(); }
+      }
+      step();
+    });
+  }
+
+  async function showQuote(q){
+    devEl.classList.add('type-cursor');
+    await typeText(devEl, q.dev);
+    devEl.classList.remove('type-cursor');
+    enEl.textContent = q.en;
+  }
+
+  async function cycle(){
+    await showQuote(QUOTES[idx % QUOTES.length]);
+    idx++;
+    setTimeout(cycle, 4800); // hold before next quote
+  }
+  cycle();
+
+  // Audio autoplay with graceful fallback
+  const audio = document.getElementById('bgAudio');
+  const toggle = document.getElementById('audioToggle');
+  const label  = document.getElementById('audioLabel');
+
+  function updateLabel(){
+    label.textContent = audio.paused ? "Play" : "Playing";
+    toggle.setAttribute('aria-label', audio.paused ? "Play sacred audio" : "Pause sacred audio");
+  }
+
+  // Try to autoplay quietly on load
+  document.addEventListener('DOMContentLoaded', async () => {
+    try {
+      await audio.play();
+      updateLabel();
+      hintEl.textContent = "Playing sacred audio. Tap the gold button to pause.";
+    } catch(e){
+      // Most browsers block autoplay with sound; wait for user gesture
+      hintEl.textContent = "Tap the gold button to start the audio.";
+      updateLabel();
+      const resumeOnce = () => {
+        audio.play().then(()=>{
+          updateLabel();
+          hintEl.textContent = "Playing sacred audio. Tap the gold button to pause.";
+        }).catch(()=>{});
+        window.removeEventListener('click', resumeOnce);
+        window.removeEventListener('touchstart', resumeOnce);
+        window.removeEventListener('keydown', resumeOnce);
+      };
+      window.addEventListener('click', resumeOnce, { once:true });
+      window.addEventListener('touchstart', resumeOnce, { once:true });
+      window.addEventListener('keydown', resumeOnce, { once:true });
+    }
+  });
+
+  // Manual toggle
+  toggle.addEventListener('click', async () => {
+    if(audio.paused){
+      try { await audio.play(); } catch(e) {}
+    } else {
+      audio.pause();
+    }
+    updateLabel();
+  });
+})();
+</script>
+
+</body>
+</html>
